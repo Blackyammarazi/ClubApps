@@ -29,4 +29,13 @@ document.getElementById("form").addEventListener("submit", function (e) {
 
     input.value = "";
   }
+
+// script.js
+document.getElementById("btn1").addEventListener("click", () => {
+  alert("Hiciste clic en Botón 1");
+});
+document.getElementById("btn2").addEventListener("click", () => {
+  alert("Hiciste clic en Botón 2");
+});
+
 });
