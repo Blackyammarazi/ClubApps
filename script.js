@@ -1,38 +1,32 @@
-const form = document.getElementById('clubForm');
-const miembrosList = document.getElementById('miembros');
+// Cargar al inicio
+document.addEventListener("DOMContentLoaded", () => {
+  const lista = document.getElementById("lista");
+  const miembros = JSON.parse(localStorage.getItem("miembros")) || [];
 
-// Cargar miembros guardados al inicio
-let miembros = JSON.parse(localStorage.getItem('miembros')) || [];
-renderMiembros();
-
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
-  
-  const nombre = document.getElementById('nombre').value.trim();
-  
-  if (nombre === '') {
-    alert('El nombre no puede estar vacío');
-    return;
-  }
-
-  if (miembros.includes(nombre)) {
-    alert('Ese miembro ya existe');
-    return;
-  }
-
-  miembros.push(nombre);
-  localStorage.setItem('miembros', JSON.stringify(miembros));
-
-  renderMiembros();
-  form.reset();
+  miembros.forEach(nombre => {
+    const li = document.createElement("li");
+    li.textContent = nombre;
+    lista.appendChild(li);
+  });
 });
 
-// Función para renderizar miembros
-function renderMiembros() {
-  miembrosList.innerHTML = '';
-  miembros.forEach(nombre => {
-    const li = document.createElement('li');
+// Guardar al agregar
+document.getElementById("form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const input = document.getElementById("nombre");
+  const nombre = input.value.trim();
+
+  if (nombre !== "") {
+    const lista = document.getElementById("lista");
+    const li = document.createElement("li");
     li.textContent = nombre;
-    miembrosList.appendChild(li);
-  });
-}
+    lista.appendChild(li);
+
+    // Guardar en localStorage
+    const miembros = JSON.parse(localStorage.getItem("miembros")) || [];
+    miembros.push(nombre);
+    localStorage.setItem("miembros", JSON.stringify(miembros));
+
+    input.value = "";
+  }
+});
