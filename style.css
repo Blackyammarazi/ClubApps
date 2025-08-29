@@ -1,54 +1,96 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif, 'Lucida Sans',  Verdana, sans-serif;
-  margin: 40px auto;
-  max-width: 500px;
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-h1, h2 {
-  text-align: center;
-  color: #333;
-}
-
-form {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  color: #fff;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.container {
+  background: rgba(0,0,0,0.6);
+  padding: 25px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+h1 span {
+  color: #ffd700;
+}
+
+.form {
+  display: flex;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-input {
-  padding: 8px;
-  margin-right: 10px;
+.form input {
   flex: 1;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
 }
 
-button {
-  padding: 8px 15px;
-  background: #2391db;
+.form button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background: #ffd700;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form button:hover {
+  background: #f0c000;
+}
+
+#listaNombres {
+  list-style: none;
+}
+
+#listaNombres li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.1);
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+#listaNombres li span {
+  flex: 1;
+}
+
+.btn-eliminar {
+  background: crimson;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
+  padding: 6px 12px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-button:hover {
-  background: #005fa3;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  background: #fff;
-  margin: 5px 0;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
+.btn-eliminar:hover {
+  background: darkred;
 }

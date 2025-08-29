@@ -3,26 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Club App</title>
+  <title>Club App Bitches Sistemas de Ususarios</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Bienvenido a Club App</h1>
-  <form id="clubForm">
-    <label>Nombre:</label>
-    <input type="text" id="nombre" required>
-    <button type="submit">Guardar</button>
-  </form>
+  <div class="container">
+    <h1>Bienvenidos a <span>Club App</span></h1>
 
-  <h2>Miembros registrados</h2>
-  <ul id="miembros"></ul>
+    <div class="form">
+      <input type="text" id="nombreInput" placeholder="Escribe un nombre...">
+      <button id="guardarBtn">Guardar</button>
+    </div>
 
-  
- <!-- Aquí agregamos los botones -->
-  <button id="btn1">Botón 1</button>
-  <button id="btn2">Botón 2</button>
+    <ul id="listaNombres"></ul>
+  </div>
 
   <script src="script.js"></script>
-
 </body>
 </html>

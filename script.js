@@ -1,38 +1,35 @@
-const form = document.getElementById('clubForm');
-const miembrosList = document.getElementById('miembros');
+// Elementos
+const input = document.getElementById("nombreInput");
+const guardarBtn = document.getElementById("guardarBtn");
+const lista = document.getElementById("listaNombres");
 
-// Cargar miembros guardados al inicio
-let miembros = JSON.parse(localStorage.getItem('miembros')) || [];
-renderMiembros();
+// Guardar nombre
+guardarBtn.addEventListener("click", () => {
+  const nombre = input.value.trim();
 
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
-  
-  const nombre = document.getElementById('nombre').value.trim();
-  
-  if (nombre === '') {
-    alert('El nombre no puede estar vacío');
-    return;
+  if (nombre !== "") {
+    agregarNombre(nombre);
+    input.value = "";
+    input.focus();
   }
-
-  if (miembros.includes(nombre)) {
-    alert('Ese miembro ya existe');
-    return;
-  }
-
-  miembros.push(nombre);
-  localStorage.setItem('miembros', JSON.stringify(miembros));
-
-  renderMiembros();
-  form.reset();
 });
 
-// Función para renderizar miembros
-function renderMiembros() {
-  miembrosList.innerHTML = '';
-  miembros.forEach(nombre => {
-    const li = document.createElement('li');
-    li.textContent = nombre;
-    miembrosList.appendChild(li);
+// Agregar nombre a la lista con botón eliminar
+function agregarNombre(nombre) {
+  const li = document.createElement("li");
+
+  const span = document.createElement("span");
+  span.textContent = nombre;
+
+  const btnEliminar = document.createElement("button");
+  btnEliminar.textContent = "Eliminar";
+  btnEliminar.classList.add("btn-eliminar");
+
+  btnEliminar.addEventListener("click", () => {
+    li.remove();
   });
+
+  li.appendChild(span);
+  li.appendChild(btnEliminar);
+  lista.appendChild(li);
 }
