@@ -32,4 +32,28 @@ function agregarNombre(nombre) {
   li.appendChild(span);
   li.appendChild(btnEliminar);
   lista.appendChild(li);
+// Obtener y limpiar espacios extra
+const name = nameInput.value.trim();
+
+// Validación: campo vacío
+if (name === "") {
+  alert("⚠️ El nombre no puede estar vacío.");
+  return;
+}
+
+// Validación: duplicados (case insensitive)
+if (names.includes(name.toLowerCase())) {
+  alert("⚠️ Ese nombre ya fue agregado.");
+  return;
+}
+
+// Validación: longitud máxima (extra a maxlength del HTML)
+if (name.length > 50) {
+  alert("⚠️ El nombre no puede tener más de 50 caracteres.");
+  return;
+}
+
+// Guardar en lista (en minúsculas para validar duplicados)
+names.push(name.toLowerCase());
+
 }
